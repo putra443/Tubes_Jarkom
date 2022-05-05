@@ -287,6 +287,8 @@ public class Server extends Thread {
                 dos.flush();
                 System.out.println(res10);
             }
+
+            s.close();
         }
     }
 }

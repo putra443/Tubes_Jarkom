@@ -39,7 +39,10 @@ public class Client {
             System.out.println(question_1_opt);
 
             String input = sc.next();
+            System.out.println(input);
             dos.writeUTF(input);
+            dos.flush();
+
 
             String res1 = dis.readUTF();
 
@@ -47,14 +50,37 @@ public class Client {
                 System.out.println(res1);
                 point++;
             }
-            else if(!res1.equals("Correct!")){
+            else {
                 System.out.println(res1);
                 point--;
             }
 
 
+            String question_2 = dis.readUTF();
+            System.out.println(question_2);
+
+            String question_2_opt = dis.readUTF();
+            System.out.println(question_2_opt);
+
+            input = sc.next();
+            System.out.println(input);
+            dos.writeUTF(input);
+            dos.flush();
+            String res2 = dis.readUTF();
+
+            if(res2.equals("Correct!")){
+                System.out.println(res2);
+                point++;
+            }
+            else{
+                System.out.println(res2);
+                point--;
+            }
+
+
             String overall_point = Integer.toString(point);
-            System.out.println(overall_point);
+            point= 0;
+            System.out.println("Your final score: "+overall_point);
 
         }
     }
